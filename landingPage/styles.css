@@ -1,0 +1,317 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #c9c9c9;
+    color: #000000;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+p {
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+}
+
+a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    color: #000000;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100svh;
+    padding: 2rem;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    display: flex;
+    gap: 2em;
+    overflow: hidden;
+}
+
+.projects,
+.loader,
+.locations {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2em;
+}
+
+.loader h1 {
+    align-items: center;
+    gap: 0;
+}
+
+.loader h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2.5rem;
+    font-style: italic;
+    line-height: 0.9;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(0deg, #3a3a3a, #3a3a3a, 50%, #fff 0);
+    background-size: 100% 200%;
+    background-position: 0% 100%;
+    color: #3a3a3a;
+}
+
+.projects-header,
+.project-item,
+.locations-header,
+.location-item {
+    display: flex;
+    gap: 2em;
+    opacity: 0;
+}
+
+.projects-header > *, .locations-header > *{
+    flex: 1;
+}
+
+.locations{
+    align-items: center;
+}
+
+.locations-header, .location-item{
+    color: #4f4f4f;
+    width: 100%;
+    text-align: center;
+}
+
+.location-item p {
+    width: 100%;
+    margin-bottom: 0.5em;
+}
+
+.image-grid{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    z-index: 2;
+}
+
+.grid-row{
+    width: 100%;
+    display: flex;
+    gap: 1em;
+}
+
+.img{
+    position: relative;
+    flex: 1;
+    aspect-ratio: 1;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+    overflow: hidden;
+    transition: transform 0.5s ease;
+}
+
+.img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.img.hero-img {
+    z-index: 5;
+    position: relative;
+    object-fit: contain;
+}
+
+.img.hero-img img {
+    transition: transform 1s ease;
+    object-fit: contain;
+}
+
+nav{
+    position: fixed;
+    width: 100vw;
+    padding: 1em;
+    display: flex;
+    gap: 2em;
+}
+
+nav > *{
+    flex: 1;
+}
+
+.links{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.links a {
+    position: relative;
+    padding: 2px 4px;
+}
+
+.links a:hover {
+    transform: translateY(-2px);
+    text-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+}
+
+.links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+}
+
+.links a:hover::after {
+    width: 100%;
+}
+
+.nav-logo{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-logo a{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.75em;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 0.9;
+    transition: all 0.3s ease;
+}
+
+.nav-logo a:hover {
+    transform: scale(1.05);
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+}
+
+.banner-img{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 14%;
+    aspect-ratio: 4/5;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.banner-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner-img-1{
+    left: 12%;
+}
+
+.banner-img-2{
+    left: 88%;
+}
+
+.intro-copy{
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    width: 100%;
+    padding: 0.8em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title{
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.intro-copy h3, .title h1{
+    position: relative;
+    text-transform: uppercase;
+    color: #000;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 0.9;
+}
+
+.title h1{
+    font-size: 3.5;
+}
+
+.intro-copy h3{
+    font-size: 1.5em;
+}
+
+.intro-copy h3, .title h1{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.intro-copy h3 .word, .title h1 .word{
+    display: inline-block;
+    position: relative;
+    will-change: transform;
+    margin-right: 0.1rem;
+}
+
+@media (max-width: 900px){
+    .loader{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .projects, .locations, .intro-copy, .banner-img{
+        display: none;
+    }
+    .title{
+        width: 100%;
+        bottom: 20%;
+        display: flex;
+        justify-content: center;
+    }
+    .title h1{
+        font-size: 2.5rem;
+    }
+    .image-grid{
+        width: 75%;
+        gap: 0.5em;
+    }
+    .grid-row{
+        width: 95%;
+        justify-content: space-around;
+        gap: 0.5em;
+    }
+}
