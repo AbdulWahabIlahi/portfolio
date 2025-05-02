@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/landingPage/index.html" },
+    { "source": "/(.*)", "destination": "/$1" }
+  ],
+  "trailingSlash": false
+}
