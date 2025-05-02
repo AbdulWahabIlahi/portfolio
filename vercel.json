@@ -1,6 +1,9 @@
 {
   "rewrites": [
     { "source": "/", "destination": "/landingPage/index.html" },
+    { "source": "/styles.css", "destination": "/landingPage/styles.css" },
+    { "source": "/script.js", "destination": "/landingPage/script.js" },
+    { "source": "/img/(.*)", "destination": "/landingPage/img/$1" },
     { "source": "/(.*)", "destination": "/$1" }
   ],
   "trailingSlash": false
