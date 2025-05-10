@@ -4,6 +4,45 @@ import { projectsData } from "./projects.js";
 gsap.registerPlugin(CustomEase);
 CustomEase.create("hop", "0.9, 0, 0.1, 1")
 
+// Detect device type and screen size
+const isMobile = () => window.innerWidth <= 600;
+const isTablet = () => window.innerWidth > 600 && window.innerWidth <= 900;
+const isDesktop = () => window.innerWidth > 900;
+
+// Update animations on resize
+window.addEventListener('resize', () => {
+    // Only update if we cross a breakpoint boundary
+    const wasMobile = currentDevice === 'mobile';
+    const wasTablet = currentDevice === 'tablet';
+    const wasDesktop = currentDevice === 'desktop';
+    
+    updateCurrentDevice();
+    
+    const isMobileNow = currentDevice === 'mobile';
+    const isTabletNow = currentDevice === 'tablet';
+    const isDesktopNow = currentDevice === 'desktop';
+    
+    // If device type changed, we could adjust animations here if needed
+    if ((wasMobile && !isMobileNow) || (wasTablet && !isTabletNow) || (wasDesktop && !isDesktopNow)) {
+        // Could refresh animations if needed
+    }
+});
+
+// Track current device type
+let currentDevice = 'desktop';
+function updateCurrentDevice() {
+    if (isMobile()) {
+        currentDevice = 'mobile';
+    } else if (isTablet()) {
+        currentDevice = 'tablet';
+    } else {
+        currentDevice = 'desktop';
+    }
+}
+
+// Set initial device type
+updateCurrentDevice();
+
 document.addEventListener("DOMContentLoaded", () => {
     const projectContainer = document.querySelector(".projects");
     const locationsContainer = document.querySelector(".locations");
@@ -114,8 +153,18 @@ document.addEventListener("DOMContentLoaded", () => {
     init();
 
     function createAnimationTimelines() {
+        // Adjust timings based on device type
+        const getResponsiveValue = (desktopVal, tabletVal, mobileVal) => {
+            if (isMobile()) return mobileVal;
+            if (isTablet()) return tabletVal;
+            return desktopVal;
+        };
+        
+        // Adjust delay for smaller screens (faster animations on mobile)
+        const imageTimelineDelay = getResponsiveValue(3.5, 3.0, 2.5);
+        
         const overlayTimeline = gsap.timeline();
-        const imagesTimeline = gsap.timeline({delay: 3.5});
+        const imagesTimeline = gsap.timeline({delay: imageTimelineDelay});
         const textTimeline = gsap.timeline();
 
         overlayTimeline.to(".logo-line-1", {
@@ -212,12 +261,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }, "+=0.2");
 
         imagesTimeline.to(".hero-img", {
-            scale: 3,
-            clipPath: "polygon(20% 10%, 80% 10%, 80% 90%, 20% 90%)",
-            duration: 1.5,
+            scale: getResponsiveValue(3, 2.5, 2),
+            clipPath: isMobile() ? "polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%)" : "polygon(20% 10%, 80% 10%, 80% 90%, 20% 90%)",
+            duration: getResponsiveValue(1.5, 1.3, 1),
             ease: "hop",
             onStart: () => {
-                gsap.to(".banner-img", { scale: 1, delay: 0.5, duration: 0.5 });
+                // Only show banner images on tablet and desktop
+                if (!isMobile()) {
+                    gsap.to(".banner-img", { scale: 1, delay: 0.5, duration: 0.5 });
+                }
                 gsap.to("nav", { y: "0%", duration: 1, ease: "hop", delay: 0.25 });
             }
         }, "+=0.1");
@@ -242,11 +294,14 @@ document.addEventListener("DOMContentLoaded", () => {
             "<"
         );
 
+        // Adjust text animation timing based on device
+        const textAnimDelay = getResponsiveValue(9.5, 8.5, 7.5);
+        
         textTimeline.to(titleHeading.words, {
             y: "0%",
-            duration: 1,
-            stagger: 0.1,
-            delay: 9.5,
+            duration: getResponsiveValue(1, 0.8, 0.6),
+            stagger: getResponsiveValue(0.1, 0.08, 0.05),
+            delay: textAnimDelay,
             ease: "power3.out"
         })
 

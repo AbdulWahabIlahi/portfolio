@@ -154,19 +154,23 @@ nav > *{
 
 @media (max-width: 600px) {
     nav {
-        padding: 0.6em;
-        gap: 0.5em;
-        flex-wrap: wrap;
+        padding: 0.5em 0.3em;
+        gap: 0.3em;
+        flex-direction: row;
+        align-items: center;
     }
     
     .nav-logo {
-        order: -1;
-        width: 100%;
-        margin-bottom: 0.5em;
+        flex: 0.8;
+        text-align: center;
+    }
+    
+    .nav-logo a {
+        font-size: 1.2em;
     }
     
     .links {
-        justify-content: space-around;
+        justify-content: space-between;
     }
     
     .links a {
