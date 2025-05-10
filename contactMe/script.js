@@ -1,12 +1,38 @@
 let particles = []
 
-const particleCount = 300
+// Responsive settings based on screen size
+let particleCount = 300
 const particleSize = 10
-const spacing = particleSize * 10
+let spacing = particleSize * 10
 let gravity
 let deltaTime = 1 /60
 let mousePrevX = 0
 let mousePrevY = 0
+
+// Adjust particle settings based on screen width
+function updateParticleSettings() {
+    if (window.innerWidth <= 600) {
+        particleCount = 95
+        spacing = particleSize * 7
+    } else if (window.innerWidth <= 900) {
+        particleCount = 150
+        spacing = particleSize * 8
+    } else {
+        particleCount = 300
+        spacing = particleSize * 10
+    }
+}
+
+// Call this function initially and on window resize
+updateParticleSettings()
+window.addEventListener('resize', () => {
+    updateParticleSettings()
+    // Reset particles array if needed
+    if (particles.length > 0) {
+        particles = []
+        setup() // Re-run setup to create the right number of particles
+    }
+})
 
 class Particle{
     constructor(x, y){

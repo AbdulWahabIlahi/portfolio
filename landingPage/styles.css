@@ -286,32 +286,162 @@ nav > *{
     margin-right: 0.1rem;
 }
 
-@media (max-width: 900px){
-    .loader{
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .image-grid {
+        width: 40%;
+    }
+    
+    .banner-img {
+        width: 16%;
+    }
+    
+    .intro-copy h3 {
+        font-size: 1.3em;
+    }
+    
+    .title h1 {
+        font-size: 3em;
+    }
+}
+
+@media (max-width: 900px) {
+    nav {
+        padding: 0.8em;
+        gap: 1em;
+    }
+    
+    .nav-logo a {
+        font-size: 1.4em;
+    }
+    
+    .links {
+        justify-content: space-between;
+    }
+    
+    .loader {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
-    .projects, .locations, .intro-copy, .banner-img{
+    
+    .projects, .locations {
         display: none;
     }
-    .title{
+    
+    .image-grid {
+        width: 60%;
+        gap: 0.5em;
+    }
+    
+    .grid-row {
         width: 100%;
-        bottom: 20%;
+        gap: 0.5em;
+    }
+    
+    .intro-copy {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5em;
+    }
+    
+    .intro-copy h3 {
+        font-size: 1.2em;
+    }
+    
+    .banner-img {
+        width: 18%;
+    }
+    
+    .banner-img-1 {
+        left: 15%;
+    }
+    
+    .banner-img-2 {
+        left: 85%;
+    }
+    
+    .title {
+        width: 100%;
+        bottom: 15%;
         display: flex;
         justify-content: center;
+        text-align: center;
     }
-    .title h1{
+    
+    .title h1 {
         font-size: 2.5rem;
+        text-align: center;
     }
-    .image-grid{
-        width: 75%;
+}
+
+@media (max-width: 600px) {
+    nav {
+        padding: 0.6em;
         gap: 0.5em;
+        flex-wrap: wrap;
     }
-    .grid-row{
-        width: 95%;
+    
+    .nav-logo {
+        order: -1;
+        width: 100%;
+        margin-bottom: 0.5em;
+    }
+    
+    .links {
         justify-content: space-around;
-        gap: 0.5em;
+    }
+    
+    .links a {
+        font-size: 0.65rem;
+    }
+    
+    .image-grid {
+        width: 85%;
+        gap: 0.3em;
+    }
+    
+    .grid-row {
+        gap: 0.3em;
+    }
+    
+    .banner-img {
+        display: none;
+    }
+    
+    .intro-copy {
+        padding: 0.5em;
+    }
+    
+    .intro-copy h3 {
+        font-size: 1em;
+    }
+    
+    .title {
+        bottom: 10%;
+    }
+    
+    .title h1 {
+        font-size: 1.8rem;
+    }
+    
+    .overlay .logo-line-1,
+    .overlay .logo-line-2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .image-grid {
+        width: 95%;
+    }
+    
+    .title h1 {
+        font-size: 1.5rem;
+    }
+    
+    .intro-copy h3 {
+        font-size: 0.9em;
     }
 }

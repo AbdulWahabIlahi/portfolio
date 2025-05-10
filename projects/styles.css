@@ -269,14 +269,52 @@ footer p{
     will-change: transform;
 }
 
-@media (max-width: 900px){
-    .slide-main-img{
-        width: 75%;
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .slide-main-img {
+        width: 30%;
     }
+    
+    .slide-copy {
+        left: 25%;
+    }
+}
 
-    .slide-copy{
-        top: 60%;
-        left: 60%;
+@media (max-width: 900px) {
+    nav {
+        padding: 0.8em;
+        gap: 1em;
+    }
+    
+    .nav-logo a {
+        font-size: 1.4em;
+    }
+    
+    .links {
+        justify-content: space-between;
+    }
+    
+    .slide-main-img {
+        width: 50%;
+        height: 40%;
+    }
+    
+    .slide-copy {
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+    }
+    
+    .slide-title, .slide-description {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    footer {
+        padding: 1.5em;
     }
     
     .page-content h1 {
@@ -285,5 +323,71 @@ footer p{
     
     .page-content p {
         font-size: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        padding: 0.6em;
+        gap: 0.5em;
+        flex-wrap: wrap;
+    }
+    
+    .nav-logo {
+        order: -1;
+        width: 100%;
+        margin-bottom: 0.5em;
+    }
+    
+    .links {
+        justify-content: space-around;
+    }
+    
+    .links a {
+        font-size: 0.65rem;
+    }
+    
+    .slide-main-img {
+        width: 70%;
+        height: 35%;
+    }
+    
+    .slide-copy {
+        top: 70%;
+    }
+    
+    .slide-title h1 {
+        font-size: 36px;
+    }
+    
+    .slide-description p {
+        font-size: 16px;
+    }
+    
+    footer {
+        padding: 1em;
+    }
+}
+
+@media (max-width: 400px) {
+    .slide-main-img {
+        width: 85%;
+        height: 30%;
+    }
+    
+    .slide-title h1 {
+        font-size: 30px;
+    }
+    
+    .slide-description p {
+        font-size: 14px;
+    }
+    
+    footer {
+        padding: 0.8em;
+    }
+    
+    footer a, .slider-counter p {
+        font-size: 12px;
     }
 }
