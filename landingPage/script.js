@@ -1,6 +1,60 @@
 // Libraries are loaded via CDN in the HTML file
 import { projectsData } from "./projects.js";
 
+// Major cities of India for the locations section
+const indianCities = [
+    "Mumbai",
+    "Delhi",
+    "Bangalore",
+    "Hyderabad",
+    "Chennai",
+    "Kolkata",
+    "Ahmedabad",
+    "Pune",
+    "Jaipur",
+    "Surat",
+    "Lucknow",
+    "Kanpur",
+    "Nagpur",
+    "Indore",
+    "Bhopal"
+];
+
+// Expertise in AI and web development
+const expertise = [
+    "Agentic AI Development",
+    "LLM Fine-tuning",
+    "Prompt Engineering",
+    "AI Agent Orchestration",
+    "Full-Stack Development",
+    "Frontend Architecture",
+    "Responsive Design",
+    "User Experience",
+    "AI Integration",
+    "Generative AI Solutions",
+    "Retrieval Augmented Generation",
+    "AI Tool Development"
+];
+
+// Technologies used
+const technologies = [
+    "React.js",
+    "Node.js",
+    "Python",
+    "LangChain",
+    "Vercel AI SDK",
+    "OpenAI API",
+    "Anthropic API",
+    "MongoDB",
+    "Vector Databases",
+    "Next.js",
+    "TailwindCSS",
+    "TypeScript",
+    "Docker",
+    "GPT-4",
+    "Claude 3"
+];
+
 gsap.registerPlugin(CustomEase);
 CustomEase.create("hop", "0.9, 0, 0.1, 1")
 
@@ -70,27 +124,46 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function initializeDynamicContent() {
-        projectsData.forEach((project) => {
+        // Add expertise items
+        expertise.forEach((item) => {
             const projectItem = document.createElement("div")
             projectItem.className = "project-item"
 
-            const projectName = document.createElement("p")
-            projectName.textContent = project.name
+            const itemName = document.createElement("p")
+            itemName.textContent = item
 
-            const directorName = document.createElement("p")
-            directorName.textContent = project.director
+            const itemType = document.createElement("p")
+            itemType.textContent = "Expertise"
 
-            projectItem.appendChild(projectName)
-            projectItem.appendChild(directorName)
+            projectItem.appendChild(itemName)
+            projectItem.appendChild(itemType)
 
             projectContainer.appendChild(projectItem)
         });
-        projectsData.forEach((project) => {
+        
+        // Add technology items
+        technologies.forEach((tech) => {
+            const projectItem = document.createElement("div")
+            projectItem.className = "project-item"
+
+            const techName = document.createElement("p")
+            techName.textContent = tech
+
+            const techType = document.createElement("p")
+            techType.textContent = "Technology"
+
+            projectItem.appendChild(techName)
+            projectItem.appendChild(techType)
+
+            projectContainer.appendChild(projectItem)
+        });
+        // Use Indian cities for the locations section
+        indianCities.forEach((city) => {
             const locationItem = document.createElement("div")
             locationItem.className = "location-item"
 
             const locationName = document.createElement("p")
-            locationName.textContent = project.location
+            locationName.textContent = city
 
             locationItem.appendChild(locationName)
             locationsContainer.appendChild(locationItem)

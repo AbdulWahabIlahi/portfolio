@@ -41,7 +41,7 @@ This portfolio is built with a focus on modern web technologies and compelling v
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/portfolio.git
+git clone https://github.com/AbdulWahabIlahi/portfolio.git
 
 # Navigate to the project directory
 cd portfolio
@@ -56,9 +56,9 @@ Alternatively, simply open the `index.html` file in your browser.
 
 I'm open to job opportunities, collaborations, and interesting projects in web development and AI.
 
-- **Email**: [your-email@example.com](mailto:your-email@example.com)
+- **Email**: [your-email@example.com](mailto:ilahiwahab@gmail.com)
 - **LinkedIn**: [linkedin.com/in/wahabilahi](https://linkedin.com/in/wahabilahi)
-- **GitHub**: [github.com/yourusername](https://github.com/yourusername)
+- **GitHub**: [github.com/AbdulWahabIlahi](https://github.com/AbdulWahabIlahi)
 
 ## 📝 License
 
